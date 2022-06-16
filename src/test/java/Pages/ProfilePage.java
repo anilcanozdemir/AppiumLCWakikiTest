@@ -11,10 +11,17 @@ import java.util.List;
 public class ProfilePage {
     AppiumDriver driver;
     By forgotPassword = By.id("com.lcwaikiki.android:id/textForgotPassword");
+    By slideDownText=By.id("com.lcwaikiki.android:id/slideDownText");
     By textviewTitleAccount = By.id("com.lcwaikiki.android:id/textviewTitleAccount");
     By headerLogin = By.id("com.lcwaikiki.android:id/headerLogin");
     By radioButtons = By.className("android.widget.RadioButton");
-
+    By radioBtnPhone=By.id("com.lcwaikiki.android:id/radioBtnPhone");
+    By edtEmail=By.id("com.lcwaikiki.android:id/edtEmail");
+    By edtPassword=By.id("com.lcwaikiki.android:id/edtPassword");
+    By buttonLogin=By.id("com.lcwaikiki.android:id/buttonLogin");
+    By errPass=By.id("com.lcwaikiki.android:id/errortextPassword");
+    By errEmail=By.id("com.lcwaikiki.android:id/errortextEmail");
+By showPass=By.id("com.lcwaikiki.android:id/text_input_end_icon");
     public ProfilePage() {
         this.driver = DriverFactory.getDriver();
 
@@ -62,37 +69,37 @@ public class ProfilePage {
     }
 
     public void checkTextOnEmail(String arg0) throws Exception {
-        if (!driver.findElement(By.id("com.lcwaikiki.android:id/edtEmail")).getText().equals(arg0))
+        if (!driver.findElement(edtEmail).getText().equals(arg0))
             throw new Exception("checkTextOnEmail");
     }
 
     public void checkTextOnPassword(String arg0) throws Exception {
-        if (!driver.findElement(By.id("com.lcwaikiki.android:id/edtPassword")).getText().equals(arg0))
+        if (!driver.findElement(edtPassword).getText().equals(arg0))
             throw new Exception("checkTextOnPassword");
     }
 
     public void checkShowPasswordIcon() {
-        driver.findElement(By.id("com.lcwaikiki.android:id/text_input_end_icon"));
+        driver.findElement(showPass);
     }
 
     public void checkLoginButton() {
-        driver.findElement(By.id("com.lcwaikiki.android:id/buttonLogin"));
+        driver.findElement(buttonLogin);
     }
 
     public void checkPhoneTextBox() {
-        driver.findElement(By.id("com.lcwaikiki.android:id/radioBtnPhone"));
+        driver.findElement(radioBtnPhone);
 
     }
 
     public void clickLoginButton() {
-        driver.findElement(By.id("com.lcwaikiki.android:id/buttonLogin")).click();
+        driver.findElement(buttonLogin).click();
 
     }
 
 
     public void SlideDownTextError(String arg0) throws Exception {
 
-        if (!driver.findElement(By.id("com.lcwaikiki.android:id/slideDownText")).getText().equals(arg0))
+        if (!driver.findElement(slideDownText).getText().equals(arg0))
             throw new Exception("SlideDownTextError");
     }
 
@@ -110,14 +117,14 @@ public class ProfilePage {
     public void checkPasswordFalseMessage(String arg0) throws Exception {
 
 
-        if (!driver.findElement(By.id("com.lcwaikiki.android:id/errortextPassword")).getText().equals(arg0))
+        if (!driver.findElement(errPass).getText().equals(arg0))
             throw new Exception("checkPasswordFalseMessage");
     }
 
     public void checkEmailFalseMessage(String arg0) throws Exception {
 
 
-        if (!driver.findElement(By.id("com.lcwaikiki.android:id/errortextEmail")).getText().equals(arg0))
+        if (!driver.findElement(errEmail).getText().equals(arg0))
             throw new Exception("checkEmailFalseMessage");
     }
 
@@ -125,13 +132,13 @@ public class ProfilePage {
 
 
     private AndroidElement tapEmail() {
-        AndroidElement androidElement= (AndroidElement) driver.findElement(By.id("com.lcwaikiki.android:id/edtEmail"));
+        AndroidElement androidElement= (AndroidElement) driver.findElement(edtEmail);
         androidElement.click();
         return androidElement;
     }
 
     private AndroidElement tapPassword() {
-        AndroidElement androidElement= (AndroidElement) driver.findElement(By.id("com.lcwaikiki.android:id/edtPassword"));
+        AndroidElement androidElement= (AndroidElement) driver.findElement(edtPassword);
         androidElement.click();
         return androidElement;
     }
