@@ -35,6 +35,6 @@ public class NavigationBar {
     }
 
     public  void clickCard(String arg0) {
-        checkByText(arg0);
+        checkByText(arg0).click();
     }
 }
